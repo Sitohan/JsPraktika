@@ -1,0 +1,165 @@
+window.onload = function(e){
+	console.log(e);
+}
+{
+	"color_scheme": "Packages/One Dark Color Scheme/One Dark.tmTheme",
+	"font_size": 14,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "OneDarkMaterial.sublime-theme"
+}
+
+чтобы подвесит любое кол-во обработчиков, собития
+
+document.body.addEventListener('click', function(){
+	console.log(1);
+});
+
+document.body.onclick = function(e){
+	console.log(1);
+}
+
+contextmenu -- правая клик мыши
+click -- левая click мыши
+
+====================
+document.querySelecetor( css селектор) -> один элемент дом
+document.querySelectorAll( css селектор) -> Массив элементов дом
+
+window.onload = function(e){
+	var buttons = document.querySelectorAll('.actions input');
+
+	for(var i =0; i < buttons.length; i++){
+		buttons[i] = btnClick;
+	}
+
+	function btnClick(e){
+		var name = getAttribute('name');
+		console.log(name);
+	}
+}
+
+
+====================
+
+var a = ['1', '2', '3'];
+
+	for(var i = 0; i < a.length; i++){
+		console.log(a[i]);
+	}
+
+	var obj = {
+		name: 'Atajan',
+		username: 'Allanyradov',
+		pass: '123'
+	};
+
+	//console.log(obj['pass']);
+	for(var key in obj){
+		console.log(obj[key]);
+	}
+
+==================
+Задача
+сделать с инпутом калкулятор слодъжение
+this.setAttribute('disabled', 'disabled');
+this.removeAttribute('disabled');
+inp1.onchange = function(){
+		btn.disabled = false;
+	}
+
+window.onload = function(e){
+	
+	var btn  = document.querySelector('input[name=calc]');
+	var inp1 = document.querySelector('input[name=num1]');
+	var inp2 = document.querySelector('input[name=num2]');
+	var span  = document.querySelector('.res');
+
+	btn.onclick = function(){
+		var res = parseInt(inp1.value) + parseInt(inp2.value);
+		span.innerHTML = res;
+		btn.disabled = true;
+	}
+
+	inp1.oninput = btnEnabled;
+	inp2.oninput = btnEnabled;
+
+	function btnEnabled(){
+		btn.disabled = false;
+	}
+}
+
+==============Калкулятор + - * / ==================
+window.onload = function(e){
+	var span  = document.querySelector('.res');
+	var inp1 = document.querySelector('input[name=num1]');
+	var inp2 = document.querySelector('input[name=num2]');
+
+	var buttons = document.querySelectorAll('input[type=button]');
+
+	for(var i = 0; i < buttons.length; i++){
+		buttons[i].onclick = function(){
+			var op = this.getAttribute('data-op');
+			Cacl(op);
+		}
+	}
+
+	function Cacl(op){
+
+		var a = parseInt(inp1.value);
+		var b = parseInt(inp2.value);
+		var res;
+
+		switch(op){
+			
+			case '+':
+			res = a + b;
+			break;
+			
+			case '-':
+			res = a - b;
+			break;
+			
+			case '*':
+			res = a * b;
+			break;
+
+			case '/':
+			res = a / b;
+			break;
+
+			default:
+			res = 'Неизвестная операция!';
+
+			
+		}
+		span.innerHTML = res;
+		
+	}
+	
+}
+
+
+btn.onclick = function(){
+	this.style.border = '1px solid red';
+	один тот же собития но toggle боллее эффективный
+	this.classList.toggle('item-active');
+}
+
+
+==================
+события заданное выполняется первым -- 
+события браузера выполняется вторим
+==================
+
+==================
+
+==================
+
+==================
+
+==================
+
+==================
